@@ -21,7 +21,6 @@ class BookList extends Component {
     let pageList = [];
     if (!this.props.books.isFetching) {
       pageList = _.chunk(this.props.books.books, 6);
-        console.log(pageList);
       let listShow = pageList[this.state.page];
       if (listShow && listShow.length !==0) {
         list = listShow.map((book, index) => (
@@ -52,7 +51,6 @@ class BookList extends Component {
       page: this.state.page - 1,
       noMore: false
     })
-    console.log(this.state.page)
   }
   render() {
 
@@ -60,7 +58,6 @@ class BookList extends Component {
       <div className="container">
                 <div className="row">
                     {this.props.books.isEmpty ? <Warning/> : this.listRender()}
-
                 </div>
                 {this.state.noMore ? <p className="text-muted text-center">Nie ma więcej wyników</p>:null}
                 <div className="container" style={{textAlign:'center'}}>
